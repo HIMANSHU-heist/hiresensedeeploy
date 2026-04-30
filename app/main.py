@@ -25,4 +25,4 @@ app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "frontend")), 
 
 @app.get("/")
 def root():
-    return FileResponse(os.path.join(BASE_DIR, "frontend", "index.html"))
+    return FileResponse(os.path.join(BASE_DIR, "app", "frontend", "index.html"))
