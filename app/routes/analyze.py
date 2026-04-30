@@ -1,7 +1,7 @@
 from fastapi import APIRouter, UploadFile, File, Form
 from typing import List
 from app.services.parser import extract_text_from_pdf
-from services.groq_service import analyze_with_groq
+from app.services.groq_service import analyze_with_groq
 
 router = APIRouter()
 
