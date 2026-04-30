@@ -15,14 +15,15 @@ app.add_middleware(
     allow_headers=["*"],
 )
 
-
 app.include_router(analyze.router)
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
+# ✅ FIXED PATH
+frontend_path = os.path.join(BASE_DIR, "app", "frontend")
 
-app.mount("/static", StaticFiles(directory=os.path.join(BASE_DIR, "frontend")), name="static")
+app.mount("/static", StaticFiles(directory=frontend_path), name="static")
 
 @app.get("/")
 def root():
-    return FileResponse(os.path.join(BASE_DIR, "app", "frontend", "index.html"))
+    return FileResponse(os.path.join(frontend_path, "index.html"))
